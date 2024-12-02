@@ -38,19 +38,31 @@
   ],
   "screenshots": [
     {
-      "src": "/resistor/screenshot1.jpg",
+      "src": "/resistor/screenshot1.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "label": "Home Screen"
     },
     {
-      "src": "/resistor/screenshot2.jpg",
+      "src": "/resistor/screenshot2.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "label": "Features Page"
     },
     {
-      "src": "/resistor/screenshot3.jpg",
+      "src": "/resistor/screenshot3.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Features Page"
+    },
+    {
+      "src": "/resistor/screenshot5.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "label": "Features Page"
+    },
+    {
+      "src": "/resistor/screenshot4.png",
       "sizes": "1080x1920",
       "type": "image/png",
       "label": "Features Page"
