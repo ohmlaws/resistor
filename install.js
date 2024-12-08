@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const btnInstall = document.getElementById('btnInstall');
   let deferredInstallPrompt;
+  const unsupportedBrowsers = ['Safari', 'Firefox'];
+
+  // Function to detect unsupported browsers
+  const isUnsupportedBrowser = unsupportedBrowsers.some(browser => navigator.userAgent.includes(browser));
 
   // Check if the app is running as a PWA
   const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
@@ -16,28 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       deferredInstallPrompt = e;
       console.log('Install prompt saved');
-      
+
       // Show the install button if available
       if (btnInstall) {
         btnInstall.style.display = 'block';
       }
-
-      // Automatically trigger the install prompt after a 10-second delay
-      setTimeout(() => {
-        if (deferredInstallPrompt) {
-          deferredInstallPrompt.prompt();
-          deferredInstallPrompt.userChoice.then((choice) => {
-            if (choice.outcome === 'accepted') {
-              console.log('User accepted the installation (auto prompt)');
-              btnInstall.style.display = 'none';
-              localStorage.setItem('pwaInstalled', 'true');
-            } else {
-              console.log('User dismissed the installation (auto prompt)');
-            }
-            deferredInstallPrompt = null; // Clear the deferred prompt
-          });
-        }
-      }, 10000); // 10-second delay
     });
 
     // Listen for install button click
@@ -47,16 +34,20 @@ document.addEventListener('DOMContentLoaded', () => {
           deferredInstallPrompt.prompt();
           deferredInstallPrompt.userChoice.then((choice) => {
             if (choice.outcome === 'accepted') {
-              console.log('User accepted the installation (button click)');
+              console.log('User accepted the installation');
               btnInstall.style.display = 'none';
               localStorage.setItem('pwaInstalled', 'true');
             } else {
-              console.log('User dismissed the installation (button click)');
+              console.log('User dismissed the installation');
             }
             deferredInstallPrompt = null; // Clear the deferred prompt
           });
         } else {
-          alert('Try again after sometimes);
+          // Custom message for unsupported browsers
+          const message = isUnsupportedBrowser
+            ? 'The install option is currently unavailable. This feature may not be supported in your browser (e.g., Safari or Firefox). Please try again later or refresh the page.'
+            : 'The installation prompt is not available at the moment.';
+          alert(message);
         }
       });
     }
