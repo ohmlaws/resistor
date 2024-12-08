@@ -16,28 +16,50 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       deferredInstallPrompt = e;
       console.log('Install prompt saved');
+      
+      // Show the install button if available
       if (btnInstall) {
-        btnInstall.style.display = 'block'; // Ensure the install button is visible
+        btnInstall.style.display = 'block';
       }
+
+      // Automatically trigger the install prompt after a 10-second delay
+      setTimeout(() => {
+        if (deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          deferredInstallPrompt.userChoice.then((choice) => {
+            if (choice.outcome === 'accepted') {
+              console.log('User accepted the installation (auto prompt)');
+              btnInstall.style.display = 'none';
+              localStorage.setItem('pwaInstalled', 'true');
+            } else {
+              console.log('User dismissed the installation (auto prompt)');
+            }
+            deferredInstallPrompt = null; // Clear the deferred prompt
+          });
+        }
+      }, 10000); // 10-second delay
     });
 
     // Listen for install button click
-    btnInstall.addEventListener('click', () => {
-      if (deferredInstallPrompt) {
-        deferredInstallPrompt.prompt();
-        deferredInstallPrompt.userChoice.then((choice) => {
-          if (choice.outcome === 'accepted') {
-            console.log('User accepted the installation');
-            btnInstall.style.display = 'none';
-            localStorage.setItem('pwaInstalled', 'true'); // Mark the app as installed
-          } else {
-            console.log('User dismissed the installation');
-          }
-        });
-      } else {
-        alert('The installation prompt is not available at the moment.');
-      }
-    });
+    if (btnInstall) {
+      btnInstall.addEventListener('click', () => {
+        if (deferredInstallPrompt) {
+          deferredInstallPrompt.prompt();
+          deferredInstallPrompt.userChoice.then((choice) => {
+            if (choice.outcome === 'accepted') {
+              console.log('User accepted the installation (button click)');
+              btnInstall.style.display = 'none';
+              localStorage.setItem('pwaInstalled', 'true');
+            } else {
+              console.log('User dismissed the installation (button click)');
+            }
+            deferredInstallPrompt = null; // Clear the deferred prompt
+          });
+        } else {
+          alert('Try again after sometimes);
+        }
+      });
+    }
 
     // Listen for the 'appinstalled' event
     window.addEventListener('appinstalled', () => {
