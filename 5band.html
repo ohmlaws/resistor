@@ -305,8 +305,8 @@ function calculateResistance() {
     // Display result
     document.getElementById('result').innerHTML =
         `Resistance: ${ohms}<br><br>` +
-        (kiloOhms ? `(${kiloOhms}) or ` : "") +
-        (megaOhms ? `(${megaOhms})<br><br>` : "") +
+        (kiloOhms ? `(${kiloOhms}) <br><br>` : "") +
+        (megaOhms ? `or (${megaOhms})<br><br>` : "") +
         `Range: [${lowerLimit.toFixed(2)} Ω - ${upperLimit.toFixed(2)} Ω]`;
 }
 
