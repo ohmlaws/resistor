@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>3/4-Band Resistor Color Code Calculator</title>
     <style>
         body {
@@ -27,39 +27,54 @@ header {
     color: #dfdfdf;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 65px;
     z-index: 1000;
     height: 30px; /* Header height updated */
 }
 
+
+
+
+        
 footer {
-    width: 100%;
-    background-color: #0c2c4a;
+    width: 98%;
     padding: 10px;
     text-align: center;
-    font-size: 14px;
     color: #dfdfdf;
-    position: relative;
-    bottom: 0;
+    font-size: 10px;    
+    position: fixed;
+    bottom: 0px;
     left: 0;
-    top: 100px;
     z-index: 1000;
-    height: 50px; /* Footer height remains the same */
 }
 
 
-#band5html {
-    margin-top: 100px; /* Margin-top set to 100px */
+#band5html {   
+    width: 98%;
+    text-align: center;
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    
+     
+}
+
+
+
+#bandhtml {   
+    background-color: #0c2c4a;
+    color: white;
     border: 1px solid #f5ab29;
     padding: 10px;
     border-radius: 50px;
+    
 }
 
 .color-selector {
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    
 }
 
 select {
@@ -106,13 +121,71 @@ footer {
     font-size: 12px;
 }   
 
+
+@media (min-width: 433px) {
+    
+    
+    
+    .color-selector{
+        
+    margin-left: 50px;
+    }
+    
+    
+}
+@media (min-width: 767px) {
+    
+    
+    
+    .color-selector{
+    font-size: 30px;    
+    margin-left: 150px;
+    }
+    
+    
+}
+
+
+@media (min-width: 1023px) {
+    
+    .color-selector{
+    
+    margin-left: 270px;
+    }
+    
+}
+
+@media (min-width: 1439px) {
+    
+    .color-selector{
+    
+    margin-left: 530px;
+    }
+}
+@media (max-height: 700px) {
+    
+   footer {
+    display: none;
+       }
+    
+    #band3html {
+        display: none;
+    }
+    
+    }
+b {
+    
+    position: absolute;
+    left: 60px;
+}
+
     </style>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
     
     <header>
- <b><img src="icon512x512.png" alt="" style="position: absolute; height: 36px; width: 36px; left: 25px; top: 7px;" > Resistor Hub</b>
-        
+ <b><img src="icon512x512.png" alt="resistor_icon" style="position: fixed; height: 36px; width: 36px; left: 25px; top: 7px;" > Resistor Hub</b>
+         
         
     </header>
     <div class="calculator">
@@ -220,14 +293,20 @@ footer {
             let ohms = `${resistanceValue.toFixed(2)} Ω`;
             let kiloohms = `${(resistanceValue / 1000).toFixed(2)} kΩ`;
 
-            document.getElementById('result').textContent = `Resistance: ${ohms} (${kiloohms}) ±${(toleranceValue * 100).toFixed(0)}% [${lowerLimit.toFixed(2)} Ω - ${upperLimit.toFixed(2)} Ω]`;
+            document.getElementById('result').innerHTML = `
+    Resistance: ${ohms} ±${(toleranceValue * 100).toFixed(0)}%<br><br>(${kiloohms})<br><br>
+     Range: [${lowerLimit.toFixed(2)} Ω - ${upperLimit.toFixed(2)} Ω]
+`;
         }
 
         // Initialize the color boxes on page load
-        window.onload = initializeColors;    
+        window.onload = initializeColors; 
+        
     </script>
-    <div id="band5html"> <a href="/resistor/5band.html" style="text-decoration: none; color: #dfdfdf;">5-Band Resistor Color Code Calculator</a> </div>
-<footer>    
-    © 2024 Resistor Hub. All rights reserved.<br> <br> Last Updated: 02/12/2024 16:31:06 IST</footer>
+   <div id="band5html"><a href="/resistor/5band.html">
+      <button id="bandhtml">5 Band Resistor Color Code Calculator</button>
+</a></div>
+       
+  <footer> © 2024-25 Resistor Hub.All rights reserved.<br>Last Updated:22/12/2024 22:52:29 IST</footer>
 </body>
-</html>
+                    </html>
