@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>5-Band Resistor Color Code Calculator</title>
     <style>
         
@@ -42,7 +42,7 @@ footer {
     position: fixed;
     bottom: 0px;
     left: 0;
-    z-index: 1000;
+    z-index: -10;
 }
 
 
@@ -52,7 +52,7 @@ footer {
     position: fixed;
     bottom: 50px;
     left: 0;
-    z-index: 1000;
+    z-index: -10;
      
 }
 
@@ -156,7 +156,18 @@ select {
     margin-left: 530px;
     }
 }
-}
+
+        @media (max-height: 700px) {
+    
+   footer {
+    display: none;
+       }
+    
+    #band3html {
+        display: none;
+    }
+    
+        }
 
 
 
