@@ -33,21 +33,54 @@
     background-color: #0c2c4a;
     
            }
-        #band-name {
-           position: absolute;
-           top: 35%; 
-           line-height: 40px;           
-                          }
-                          
-         p {
-             
-             background-color: #e2e2e2;
-             padding-right: 10px;
-             padding-left: 10px;
-             border-radius: 20px; 
-             font-size: 18px;
-         }                 
-                       
+       #band3html {   
+    width: 98%;
+    text-align: center;
+    position: fixed;
+    top: 40%;
+    left: 0;
+    z-index: 1000;
+     
+}
+
+
+
+#band3 {   
+    background-color: #0c2c4a;
+    color: white;
+    border: 1px solid #f5ab29;
+    padding: 10px;
+    border-radius: 50px;
+    
+}
+
+
+
+#band5html {   
+    width: 98%;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    
+     
+}
+
+
+
+#band5 {   
+    background-color: #0c2c4a;
+    color: white;
+    border: 1px solid #f5ab29;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;    
+    border-radius: 50px;
+    
+}
+
+  
            a {
                color: #1d1d1b;
                               
@@ -62,7 +95,7 @@
   cursor: pointer;
   margin-bottom: 10px;
   position: absolute;
-  bottom: 0;
+  bottom: 10%;
   left: 35%;
   
 }
@@ -71,6 +104,24 @@
   background-color: #0056b3;
   
 }         
+
+
+
+@media (min-width: 768px) {
+    
+    
+}
+
+
+@media (min-width: 1023px) {
+    
+    
+}
+
+@media (min-width: 1439px) {
+    
+    
+}
     </style>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -90,14 +141,15 @@
         
     </header>
     
-   <div id="band-name">
-       
-       <p><a href="/resistor/3band.html" style="text-decoration: none;">3/4 Band Resistor Color Code Calculator</p>  <br><br>
-  <p><a href="/resistor/5band.html" style="text-decoration: none;"> &nbsp;&nbsp;5 Band Resistor Color Code Calculator </a></p>
-  
-  
-  </div>
-  
+   
+  <div id="band3html"><a href="/resistor/3band.html">
+      <button id="band3">3/4 Band Resistor Color Code Calculator</button>                 
+</a></div>
+      
+      <div id="band5html"><a href="/resistor/5band.html">
+      <button id="band5">5 Band Resistor Color Code Calculator</button>
+</a></div>
+      
   <script>
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker
@@ -115,7 +167,7 @@
     
   </footer>
 
-  <script src="/resistor/install.js">      
-  </script>
+                <script src="/resistor/install.js">      
+                </script>
 </body>
-</html>
+          </html>
