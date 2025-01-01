@@ -1,4 +1,4 @@
-const CACHE_NAME = 'resistor-hub-cache-v4.2'; // Cache version
+const CACHE_NAME = 'resistor-hub-cache-v4.3'; // Cache version
 const ASSETS = [
   '/resistor/index.html',       // Ensure index.html is cached
   '/resistor/3band.html',       // 3-band page
@@ -6,7 +6,8 @@ const ASSETS = [
   '/resistor/icon192x192.png',  // 192x192 icon
   '/resistor/icon512x512.png',  // 512x512 icon
   '/resistor/resistor1.png',    // Images
-  '/resistor/resistor2.png'
+  '/resistor/resistor2.png',
+  '/resistor/resbody.png'
 ];
 
 // Install event: Cache resources
